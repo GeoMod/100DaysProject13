@@ -35,6 +35,9 @@
                             </view>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" minimumValueImage="icons8-sun-15" maximumValueImage="icons8-sun-24" translatesAutoresizingMaskIntoConstraints="NO" id="Fhr-pW-S1G">
                                 <rect key="frame" x="90" y="558" width="268" height="30"/>
+                                <connections>
+                                    <action selector="intensityChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="THC-De-kOS"/>
+                                </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Intensity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="55p-k8-otK">
                                 <rect key="frame" x="16" y="562" width="66" height="21"/>
@@ -62,7 +65,6 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="HqN-HK-JbF"/>
                                     <constraint firstAttribute="width" secondItem="03e-ZY-6Hn" secondAttribute="height" multiplier="30:11" id="KHD-1h-KnG"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="NK9-Br-Crz"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="Z3j-YN-1qf"/>
                                 </constraints>
                                 <state key="normal" image="Filter"/>
