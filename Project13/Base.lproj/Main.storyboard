@@ -51,7 +51,7 @@
                                     <action selector="changeFilter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="laO-Yu-MJy"/>
                                 </connections>
                             </button>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="aho-Yi-Hc1">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" minimumValueImage="diameterSmall" maximumValueImage="diameterLarge" translatesAutoresizingMaskIntoConstraints="NO" id="aho-Yi-Hc1">
                                 <rect key="frame" x="18" y="578" width="343" height="31"/>
                                 <connections>
                                     <action selector="radiusChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="5SG-PF-k1j"/>
@@ -98,6 +98,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="buttonTitle" destination="03e-ZY-6Hn" id="ZVC-f8-Qw0"/>
                         <outlet property="imageView" destination="don-MQ-eOM" id="KlY-56-rO3"/>
                         <outlet property="intensity" destination="Fhr-pW-S1G" id="zP6-5p-R9C"/>
                         <outlet property="radius" destination="aho-Yi-Hc1" id="YLp-ix-BU6"/>
@@ -129,6 +130,8 @@
     <resources>
         <image name="Rectangle" width="128" height="52"/>
         <image name="Save" width="68" height="52"/>
+        <image name="diameterLarge" width="14" height="14"/>
+        <image name="diameterSmall" width="8" height="8"/>
         <image name="icons8-sun-15" width="15" height="15"/>
         <image name="icons8-sun-24" width="24" height="24"/>
     </resources>
