@@ -13,6 +13,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var intensity: UISlider!
+    @IBOutlet weak var radius: UISlider!
+    
     var currentImage: UIImage!
     var context: CIContext!
     var currentFilter: CIFilter!
@@ -47,7 +49,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     @IBAction func save(_ sender: UIButton) {
-        guard let image = imageView.image else { return }
+        guard let image = imageView.image else {
+            let ac = UIAlertController(title: "No Image", message: #"Please pick an image using the "+" button in the upper right corner."#, preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(ac, animated: true, completion: nil)
+            return
+        }
         
         UIImageWriteToSavedPhotosAlbum(image, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
     }
@@ -82,6 +89,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBAction func intensityChanged(_ sender: UISlider) {
         applyProcessing()
     }
+    @IBAction func radiusChanged(_ sender: UISlider) {
+        // Not implemented
+    }
+    
+    
     
     func setFilter(action: UIAlertAction) {
         // make sure we have a valid image before continuing!
@@ -99,6 +111,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func applyProcessing() {
+        guard currentImage != nil else { return }
         let inputKeys = currentFilter.inputKeys
         
         if inputKeys.contains(kCIInputIntensityKey) { currentFilter.setValue(intensity.value, forKey: kCIInputIntensityKey) }
@@ -111,6 +124,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             self.imageView.image = processedImage
         }
     }
-        
+    
 }
 
