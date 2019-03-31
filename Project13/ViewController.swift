@@ -28,6 +28,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         currentFilter = CIFilter(name: "CISepiaTone")
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        imageView.alpha = 0
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        UIView.animate(withDuration: 1.5, delay: 0, options: [], animations: {
+            self.imageView.alpha = 1
+        }, completion: nil)
+    }
+    
     @IBAction func importPicture(_ sender: UIBarButtonItem) {
         let picker = UIImagePickerController()
         picker.allowsEditing = true
@@ -76,6 +86,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let image = info[.editedImage] as? UIImage else { return }
+        
         
         dismiss(animated: true)
         
